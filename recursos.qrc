@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/iconos/barra">
+        <file alias="exit">images/application-exit.png</file>
+        <file alias="clear">images/clear.png</file>
+        <file alias="connect">images/connect.png</file>
+        <file alias="disconnect">images/disconnect.png</file>
+        <file alias="settings">images/settings.png</file>
+        <file alias="conectar">images/conectar.png</file>
+        <file alias="desconectar">images/desconectar.png</file>
+        <file alias="home">images/home3.png</file>
+        <file alias="emergencia">images/emergency-icon.png</file>
+    </qresource>
+</RCC>
