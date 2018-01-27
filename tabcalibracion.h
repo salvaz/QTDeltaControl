@@ -37,12 +37,24 @@ public:
     explicit tabCalibracion(QWidget *parent = nullptr);
     void Habilitar (bool habil);
     void PonerDiagonalRod(QString diaRod);
+    void PonerDeltaRadio (QString esX);
+    void PonerSegmentosSegundo (QString esX);
+    void PonerPrintRadio (QString esX);
+    void PonerRadioPrueba (QString esX);
+    void PonerAlturaZ (QString esX);
+    void PonerRadioA (QString esX);
+    void PonerRadioB (QString esX);
+    void PonerRadioC (QString esX);
+
     void PonerEndstopX (QString esX);
     void PonerEndstopY (QString esX);
     void PonerEndstopZ (QString esX);
     void PonerDiagRodA (QString esX);
     void PonerDiagRodB (QString esX);
     void PonerDiagRodC (QString esX);
+    void PonerAnguloA (QString esX);
+    void PonerAnguloB (QString esX);
+    void PonerAnguloC (QString esX);
 
 signals:
 
