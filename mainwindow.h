@@ -54,6 +54,7 @@ private:
     void InterpretarDatos (QByteArray data);
     void InterpretarLinea (QString Linea);
     void InterpretarM666 (QString Linea);
+    QString BuscarValor (QString Linea,QString valor);
     QTabWidget *MiTab;
     TabComunicacion *MiTabComunicacion;
     tabCalibracion *MiTabCalibracion;

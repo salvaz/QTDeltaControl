@@ -61,6 +61,37 @@ tabCalibracion::tabCalibracion(QWidget *parent) : QWidget(parent)
     g1->addWidget(DiagonalRod,0,1);
     QLabel *LDeltaRadio=new QLabel(tr("Delta Radio (mm) :"));
     g1->addWidget(LDeltaRadio,1,0);
+    DeltaRadio=new QLineEdit("0",this);
+    g1->addWidget(DeltaRadio,1,1);
+    QLabel *LSegSeg=new QLabel(tr("Segmentos por segundo :"));
+    g1->addWidget(LSegSeg,2,0);
+    SegmentosSegundo=new QLineEdit("0",this);
+    g1->addWidget(SegmentosSegundo,2,1);
+    QLabel *LPrintRadio=new QLabel(tr("Printable Radio (mm) :"));
+    g1->addWidget(LPrintRadio,3,0);
+    PrintableRadio=new QLineEdit("0",this);
+    g1->addWidget(PrintableRadio,3,1);
+    QLabel *LRadioPrueba=new QLabel(tr("Radio max calibrar (mm) :"));
+    g1->addWidget(LRadioPrueba,4,0);
+    RadioPrueba=new QLineEdit("0",this);
+    g1->addWidget(RadioPrueba,4,1);
+    QLabel *LAlturaZ=new QLabel(tr("Altura Z (mm) :"));
+    g1->addWidget(LAlturaZ,5,0);
+    AlturaZ=new QLineEdit("0",this);
+    g1->addWidget(AlturaZ,5,1);
+    QLabel *LRadioA=new QLabel(tr("Radio torre A (mm) :"));
+    g1->addWidget(LRadioA,6,0);
+    RadioA=new QLineEdit("0",this);
+    g1->addWidget(RadioA,6,1);
+    QLabel *LRadioB=new QLabel(tr("Radio torre B (mm) :"));
+    g1->addWidget(LRadioB,7,0);
+    RadioB=new QLineEdit("0",this);
+    g1->addWidget(RadioB,7,1);
+    QLabel *LRadioC=new QLabel(tr("Radio torre C (mm) :"));
+    g1->addWidget(LRadioC,8,0);
+    RadioC=new QLineEdit("0",this);
+    g1->addWidget(RadioC,8,1);
+
     layout->addWidget(w1);
     layout->addWidget(w2);
     layout->addWidget(w4);
@@ -81,11 +112,58 @@ void tabCalibracion::Habilitar(bool habil)
     AngleB->setEnabled(habil);
     AngleC->setEnabled(habil);
     DiagonalRod->setEnabled(habil);
+    DeltaRadio->setEnabled(habil);
+    SegmentosSegundo->setEnabled(habil);
+    PrintableRadio->setEnabled(habil);
+    RadioPrueba->setEnabled(habil);
+    AlturaZ->setEnabled(habil);
+    RadioA->setEnabled(habil);
+    RadioB->setEnabled(habil);
+    RadioC->setEnabled(habil);
 }
 
 void tabCalibracion::PonerDiagonalRod(QString diaRod)
 {
     DiagonalRod->setText(diaRod);
+}
+
+void tabCalibracion::PonerDeltaRadio(QString esX)
+{
+    DeltaRadio->setText(esX);
+}
+
+void tabCalibracion::PonerSegmentosSegundo(QString esX)
+{
+    SegmentosSegundo->setText(esX);
+}
+
+void tabCalibracion::PonerPrintRadio(QString esX)
+{
+    PrintableRadio->setText(esX);
+}
+
+void tabCalibracion::PonerRadioPrueba(QString esX)
+{
+    RadioPrueba->setText(esX);
+}
+
+void tabCalibracion::PonerAlturaZ(QString esX)
+{
+    AlturaZ->setText(esX);
+}
+
+void tabCalibracion::PonerRadioA(QString esX)
+{
+    RadioA->setText(esX);
+}
+
+void tabCalibracion::PonerRadioB(QString esX)
+{
+    RadioB->setText(esX);
+}
+void tabCalibracion::PonerRadioC(QString esX)
+{
+    RadioC->setText(esX);
 }
 
 void tabCalibracion::PonerEndstopX(QString esX)
@@ -116,4 +194,19 @@ void tabCalibracion::PonerDiagRodB(QString esZ)
 void tabCalibracion::PonerDiagRodC(QString esZ)
 {
     DiagRodC->setText(esZ);
+}
+
+void tabCalibracion::PonerAnguloA(QString esZ)
+{
+    AngleA->setText(esZ);
+}
+
+void tabCalibracion::PonerAnguloB(QString esZ)
+{
+    AngleB->setText(esZ);
+}
+
+void tabCalibracion::PonerAnguloC(QString esZ)
+{
+    AngleC->setText(esZ);
 }
