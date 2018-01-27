@@ -30,7 +30,8 @@ SOURCES += \
     calibracion.cpp \
     console.cpp \
     tabcomunicacion.cpp \
-    tabcalibracion.cpp
+    tabcalibracion.cpp \
+    tabeprom.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -38,7 +39,8 @@ HEADERS += \
     calibracion.h \
     console.h \
     tabcomunicacion.h \
-    tabcalibracion.h
+    tabcalibracion.h \
+    tabeprom.h
 
 RESOURCES += \
     recursos.qrc

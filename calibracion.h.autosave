@@ -1,0 +1,36 @@
+#ifndef CALIBRACION_H
+#define CALIBRACION_H
+
+struct PuntosPrueba {
+    float probeX[20];
+    float probeY[20];
+};
+
+struct DeltaParameters = function(diagonal, radius, height, xstop, ystop, zstop, xadj, yadj, zadj) {
+	this.diagonal = diagonal;
+	this.radius = radius;
+	this.homedHeight = height;
+	this.xstop = xstop;
+	this.ystop = ystop;
+	this.zstop = zstop;
+	this.xadj = xadj;
+	this.yadj = yadj;
+	this.zadj = zadj;
+	this.Recalc();
+
+
+class Calibracion
+{
+private:
+    int firmware=0;
+    int normalize=1;
+    int numPoints=10;
+    float bedRadius=70;
+    PuntosPrueba pprueba;
+public:
+    Calibracion();
+    void calcProbePoints();
+    void calc ();
+};
+
+#endif // CALIBRACION_H
