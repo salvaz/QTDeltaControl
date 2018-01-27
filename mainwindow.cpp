@@ -264,34 +264,62 @@ void MainWindow::InterpretarLinea(QString Linea)
 
     if (Linea.indexOf("M666",0,Qt::CaseInsensitive)!=-1)
     {
-        if ((posi=Linea.indexOf("D",0,Qt::CaseInsensitive))!=-1)
-        {
-            fin=Linea.indexOf(" ",posi);
-            if (fin==-1) fin=Linea.length();
-            fin=fin-posi-1;
-            MiTabCalibracion->PonerDiagonalRod(Linea.mid(posi+1,fin));
-        }
-        if ((posi=Linea.indexOf("X",0,Qt::CaseInsensitive))!=-1)
-        {
-            fin=Linea.indexOf(" ",posi);
-            if (fin==-1) fin=Linea.length();
-            fin=fin-posi-1;
-            MiTabCalibracion->PonerEndstopX(Linea.mid(posi+1,fin));
-        }
-        if ((posi=Linea.indexOf("Y",0,Qt::CaseInsensitive))!=-1)
-        {
-            fin=Linea.indexOf(" ",posi);
-            if (fin==-1) fin=Linea.length();
-            fin=fin-posi-1;
-            MiTabCalibracion->PonerEndstopY(Linea.mid(posi+1,fin));
-        }
-        if ((posi=Linea.indexOf("Z",0,Qt::CaseInsensitive))!=-1)
-        {
-            fin=Linea.indexOf(" ",posi);
-            if (fin==-1) fin=Linea.length();
-            fin=fin-posi-1;
-            MiTabCalibracion->PonerEndstopZ(Linea.mid(posi+1,fin));
-        }
+        InterpretarM666(Linea);
+    }
+}
+
+void MainWindow::InterpretarM666(QString Linea)
+{
+    int posi,fin;
+
+    if ((posi=Linea.indexOf("D",0,Qt::CaseInsensitive))!=-1)
+    {
+        fin=Linea.indexOf(" ",posi);
+        if (fin==-1) fin=Linea.length();
+        fin=fin-posi-1;
+        MiTabCalibracion->PonerDiagonalRod(Linea.mid(posi+1,fin));
+    }
+    if ((posi=Linea.indexOf("X",0,Qt::CaseInsensitive))!=-1)
+    {
+        fin=Linea.indexOf(" ",posi);
+        if (fin==-1) fin=Linea.length();
+        fin=fin-posi-1;
+        MiTabCalibracion->PonerEndstopX(Linea.mid(posi+1,fin));
+    }
+    if ((posi=Linea.indexOf("Y",0,Qt::CaseInsensitive))!=-1)
+    {
+        fin=Linea.indexOf(" ",posi);
+        if (fin==-1) fin=Linea.length();
+        fin=fin-posi-1;
+        MiTabCalibracion->PonerEndstopY(Linea.mid(posi+1,fin));
+    }
+    if ((posi=Linea.indexOf("Z",0,Qt::CaseInsensitive))!=-1)
+    {
+        fin=Linea.indexOf(" ",posi);
+        if (fin==-1) fin=Linea.length();
+        fin=fin-posi-1;
+        MiTabCalibracion->PonerEndstopZ(Linea.mid(posi+1,fin));
+    }
+    if ((posi=Linea.indexOf("A",0,Qt::CaseInsensitive))!=-1)
+    {
+        fin=Linea.indexOf(" ",posi);
+        if (fin==-1) fin=Linea.length();
+        fin=fin-posi-1;
+        MiTabCalibracion->PonerDiagRodA(Linea.mid(posi+1,fin));
+    }
+    if ((posi=Linea.indexOf("B",0,Qt::CaseInsensitive))!=-1)
+    {
+        fin=Linea.indexOf(" ",posi);
+        if (fin==-1) fin=Linea.length();
+        fin=fin-posi-1;
+        MiTabCalibracion->PonerDiagRodB(Linea.mid(posi+1,fin));
+    }
+    if ((posi=Linea.indexOf("C",0,Qt::CaseInsensitive))!=-1)
+    {
+        fin=Linea.indexOf(" ",posi);
+        if (fin==-1) fin=Linea.length();
+        fin=fin-posi-1;
+        MiTabCalibracion->PonerDiagRodC(Linea.mid(posi+1,fin));
     }
 }
 

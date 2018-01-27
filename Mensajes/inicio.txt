@@ -1,0 +1,255 @@
+23:39:12.683 : start
+23:39:12.684 : Info:Echo:MK4duo_4.3.3
+23:39:12.684 : Echo:Last Updated: Jan 19 2018 00:04:07 | Author: (none, Delta Salvaz)
+23:39:12.684 : Echo:Compiled: Jan 19 2018
+23:39:12.684 : Echo:Free Memory: 2240 PlannerBufferBytes: 1248
+23:39:12.788 : SD card ok
+23:39:12.789 : MKV44 stored settings retrieved (276 bytes; crc -23945)
+23:39:12.793 : Unified Bed Leveling System v1.01 active.
+23:39:12.843 : Unified Bed Leveling initialized.
+23:39:12.857 : Mesh loaded from slot 1
+23:39:12.859 : Mesh 1 loaded from storage.
+23:39:12.862 : Config:  G21 ; Units in mm
+23:39:12.865 : Config:Steps per unit:
+23:39:12.868 : Config:  M92 X80.000 Y80.000 Z80.000 T0 E93.000
+23:39:12.870 : Config:Maximum feedrates (units/s):
+23:39:12.876 : Config:  M203 X500.000 Y500.000 Z500.000 T0 E45.000
+23:39:12.879 : Config:Maximum Acceleration (units/s2):
+23:39:12.881 : Config:  M201 X5000 Y5000 Z5000 T0 E1000
+23:39:12.890 : Config:Acceleration (units/s2): P<print_accel> V<travel_accel> T* R<retract_accel>
+23:39:12.895 : Config:  M204 P2000.000 V2000.000 T0 R10000.000
+23:39:12.906 : Config:Advanced variables: S<min_feedrate> V<min_travel_feedrate> B<min_segment_time_us> X<max_xy_jerk> Z<max_z_jerk> T* E<max_e_jerk>
+23:39:12.911 : Config:  M205 S0.000 V0.000 B20000 X10.000 Y10.000 Z10.000 T0 E5.000
+23:39:12.923 : Config:Hotend Sensor parameters: H<Hotend> P<Pin> A<R25> B<BetaK> C<Steinhart-Hart C> R<Pullup> L<ADC low offset> O<ADC high offset>
+23:39:12.928 : Config:  M305 H0 P13 A100000.0 B4036.0 C0.0000000000 R4700.0 L0 O0
+23:39:12.942 : Config:Hotend Heater parameters: H<Hotend> P<Pin> A<Pid Drive Min> B<Pid Drive Max> C<Pid Max> L<Min Temp> O<Max Temp> U<Use Pid 0-1> I<Hardware Inverted 0-1>
+23:39:12.947 : Config:  M306 H0 P10 A40 B230 C255 L5 O275 U1 I0
+23:39:12.947 : Config:PID settings:
+23:39:12.950 : Config:  M301 H0 P40.00 I8.00 D60.00
+23:39:12.958 : Config:Fans: P<Fan> U<Pin> L<Min Speed> F<Freq> I<Hardware Inverted 0-1>
+23:39:12.961 : Config:  M106 P0 U9 L0 F250 I0
+23:39:12.963 : Config:  M149 C ; Units in Celsius
+23:39:12.966 : Config:Unified Bed Leveling:
+23:39:12.966 : Config:  M420 S1
+23:39:12.970 : Unified Bed Leveling System v1.01 active.
+23:39:13.019 : Config:  Active Mesh Slot: 1
+23:39:13.025 : Config:  EEPROM can hold 10 meshes.
+23:39:13.025 : Config:Endstop adjustment:
+23:39:13.028 : Config:  M666 X0.00 Y-0.75 Z-1.59
+23:39:13.036 : Config:Geometry adjustment: ABC=TOWER_DIAGROD_ADJ, IJK=TOWER_ANGLE_ADJ, UVW=TOWER_RADIUS_ADJ
+23:39:13.044 : Config:                     R=DELTA_RADIUS, D=DELTA_DIAGONAL_ROD, S=DELTA_SEGMENTS_PER_SECOND
+23:39:13.053 : Config:                     O=DELTA_PRINTABLE_RADIUS, P=DELTA_PROBEABLE_RADIUS, H=DELTA_HEIGHT
+23:39:13.064 : Config:  M666 A0.000 B0.000 C0.000 I0.717 J0.542 K-0.108 U0.000 V0.000 W0.000 R106.77 D218.00 S200.00 O80.00 P70.00 H136.720
+23:39:13.066 : Config:Probe Offset:
+23:39:13.069 : Config:  M851 X0.000 Y0.000 Z-31.270
+23:39:13.071 : Config:Material heatup parameters:
+23:39:13.074 : Config:  M145 S0 H190 B60 F255
+23:39:13.077 : Config:  M145 S1 H240 B100 F255
+23:39:13.079 : Config:  M145 S2 H230 B60 F255
+23:39:13.082 : Stats: Total: 0, Finished: 0, Failed: 0
+23:39:13.088 : Stats: Total print time: 0s, Power on time: 0s
+23:39:13.090 : Stats: Filament used: 0Km 0m 0cm 0mm
+23:39:16.118 : open failed, File: init.g
+23:39:16.121 : Begin file list
+23:39:16.123 : EEPROM.bin
+23:39:16.124 : Personajes/
+23:39:16.443 : Personajes/Doughboy_Print_2.gcode
+23:39:16.443 : Personajes/dragon.gcode
+23:39:16.444 : Personajes/sitting.gcode
+23:39:16.444 : Personajes/treefrog_45_cut.gcode
+23:39:16.444 : Calibrar/
+23:39:16.444 : Calibrar/100mm_Delta_Calibration_Ro
+23:39:16.445 : Calibrar/dimensions_test_v3.gcode
+23:39:16.445 : Altavoz/
+23:39:16.445 : Altavoz/Mando/
+23:39:16.445 : Altavoz/Mando/Mando Fin.gcode
+23:39:16.445 : Cuadros/
+23:39:16.446 : Cuadros/corner.gcode
+23:39:16.446 : Cuadros/Gancho/
+23:39:16.446 : Cuadros/Gancho/Hook-Plane.gcode
+23:39:16.446 : Delta/
+23:39:16.446 : Delta/Ramps/
+23:39:16.447 : Delta/Ramps/ramps_mount_2020_fan.gcode
+23:39:16.447 : FRIGO/
+23:39:16.447 : FRIGO/0Beer 50/
+23:39:16.447 : FRIGO/0Beer 50/recolza2aV2.gcode
+23:39:16.448 : FRIGO/0Beer 50/recolza2bV2.gcode
+23:39:16.448 : FRIGO/0Fridge_beer_tidy/
+23:39:16.448 : FRIGO/0Fridge_beer_tidy/Beer_tidy_Bottom_v2.gcode
+23:39:16.449 : FRIGO/0Fridge_beer_tidy/Beer_tidy_Top_v2.gcode
+23:39:16.449 : FRIGO/Bottle_Rack/
+23:39:16.449 : FRIGO/Bottle_Rack/link.gcode
+23:39:16.449 : FRIGO/Bottle_Rack/rack.gcode
+23:39:16.450 : FRIGO/Bottle_Rack/rack_-_slim.gcode
+23:39:16.450 : FRIGO/Modular/
+23:39:16.450 : FRIGO/Modular/Modular_can_base_FRONT.gco
+23:39:16.451 : FRIGO/Modular/Modular_can_base_MID.gcode
+23:39:16.451 : FRIGO/Modular/Modular_can_base_REAR.gcod
+23:39:16.451 : FRIGO/Modular/Modular_can_center_FRONT.g
+23:39:16.452 : FRIGO/Modular/Modular_can_center_MID.gco
+23:39:16.452 : FRIGO/Modular/Modular_can_center_REAR.gc
+23:39:16.452 : FRIGO/Roll stop/
+23:39:16.453 : FRIGO/Roll stop/1_5_litre_sodabottle.gcode
+23:39:16.454 : FRIGO/Roll stop/beerbottle.gcode
+23:39:16.454 : FRIGO/Roll stop/Bump_Stop_Connector.gcode
+23:39:16.455 : FRIGO/Roll stop/sodacan.gcode
+23:39:16.455 : FRIGO/Roll stop/winebottle.gcode
+23:39:16.455 : FRIGO/Roll stop/Wine_Bump_Stop.gcode
+23:39:16.455 : Guitarra/
+23:39:16.456 : Guitarra/guitar_hanger_r3_scaled.gc
+23:39:16.456 : Perchas/
+23:39:16.456 : Perchas/Ancla/
+23:39:16.456 : Perchas/Ancla/Anchor_hanger-large.gcode
+23:39:16.457 : Perchas/Ancla/Anchor_hanger-small.gcode
+23:39:16.457 : Perchas/Normal/
+23:39:16.457 : Perchas/Normal/no_hole_-_general_purpose_
+23:39:16.457 : Perchas/Pez/
+23:39:16.458 : Perchas/Pez/fish_bone_wall_hanger_02-b
+23:39:16.458 : Perchas/Pez/fish_bone_wall_hanger_02-b
+23:39:16.458 : Perchas/Pez/fish_bone_wall_hanger_02-b
+23:39:16.459 : Perchas/Pez/fish_bone_wall_hanger_02-h
+23:39:16.459 : Perchas/Pez/fish_bone_wall_hanger_02-t
+23:39:16.459 : LED/
+23:39:16.460 : LED/MandoLed.gcode
+23:39:16.460 : Despacho/
+23:39:16.460 : Despacho/Gafas.gcode
+23:39:16.460 : Edificios/
+23:39:16.460 : Edificios/LIGHT_HOUSE.gcode
+23:39:16.463 : End file list
+23:39:16.478 : SD card ok
+23:39:16.485 : FIRMWARE_NAME:MK4duo 4.3.3 FIRMWARE_URL:marlinkimbra.it PROTOCOL_VERSION:2.0 MACHINE_TYPE:Delta EXTRUDER_COUNT:1 UUID:00000000-0000-0000-0000-000000000000
+23:39:16.509 : X:0.00 Y:0.00 Z:0.000 E:0.0000
+23:39:16.510 : DebugLevel:6
+23:39:16.510 : Begin file list
+23:39:16.510 : EEPROM.bin
+23:39:16.510 : Personajes/
+23:39:16.510 : Personajes/Doughboy_Print_2.gcode
+23:39:16.510 : Personajes/dragon.gcode
+23:39:16.510 : Personajes/sitting.gcode
+23:39:16.510 : Personajes/treefrog_45_cut.gcode
+23:39:16.510 : Calibrar/
+23:39:16.511 : Calibrar/100mm_Delta_Calibration_Ro
+23:39:16.511 : Calibrar/dimensions_test_v3.gcode
+23:39:16.514 : Altavoz/
+23:39:16.514 : Altavoz/Mando/
+23:39:16.517 : Altavoz/Mando/Mando Fin.gcode
+23:39:16.519 : Cuadros/
+23:39:16.523 : Cuadros/corner.gcode
+23:39:16.526 : Cuadros/Gancho/
+23:39:16.529 : Cuadros/Gancho/Hook-Plane.gcode
+23:39:16.529 : Delta/
+23:39:16.532 : Delta/Ramps/
+23:39:16.538 : Delta/Ramps/ramps_mount_2020_fan.gcode
+23:39:16.538 : FRIGO/
+23:39:16.542 : FRIGO/0Beer 50/
+23:39:16.548 : FRIGO/0Beer 50/recolza2aV2.gcode
+23:39:16.552 : FRIGO/0Beer 50/recolza2bV2.gcode
+23:39:16.552 : FRIGO/0Fridge_beer_tidy/
+23:39:16.557 : FRIGO/0Fridge_beer_tidy/Beer_tidy_Bottom_v2.gcode
+23:39:16.562 : FRIGO/0Fridge_beer_tidy/Beer_tidy_Top_v2.gcode
+23:39:16.563 : FRIGO/Bottle_Rack/
+23:39:16.566 : FRIGO/Bottle_Rack/link.gcode
+23:39:16.568 : FRIGO/Bottle_Rack/rack.gcode
+23:39:16.572 : FRIGO/Bottle_Rack/rack_-_slim.gcode
+23:39:16.572 : FRIGO/Modular/
+23:39:16.577 : FRIGO/Modular/Modular_can_base_FRONT.gco
+23:39:16.580 : FRIGO/Modular/Modular_can_base_MID.gcode
+23:39:16.583 : FRIGO/Modular/Modular_can_base_REAR.gcod
+23:39:16.586 : FRIGO/Modular/Modular_can_center_FRONT.g
+23:39:16.591 : FRIGO/Modular/Modular_can_center_MID.gco
+23:39:16.594 : FRIGO/Modular/Modular_can_center_REAR.gc
+23:39:16.597 : FRIGO/Roll stop/
+23:39:16.600 : FRIGO/Roll stop/1_5_litre_sodabottle.gcode
+23:39:16.603 : FRIGO/Roll stop/beerbottle.gcode
+23:39:16.606 : FRIGO/Roll stop/Bump_Stop_Connector.gcode
+23:39:16.609 : FRIGO/Roll stop/sodacan.gcode
+23:39:16.611 : FRIGO/Roll stop/winebottle.gcode
+23:39:16.615 : FRIGO/Roll stop/Wine_Bump_Stop.gcode
+23:39:16.616 : Guitarra/
+23:39:16.623 : Guitarra/guitar_hanger_r3_scaled.gc
+23:39:16.623 : Perchas/
+23:39:16.625 : Perchas/Ancla/
+23:39:16.631 : Perchas/Ancla/Anchor_hanger-large.gcode
+23:39:16.634 : Perchas/Ancla/Anchor_hanger-small.gcode
+23:39:16.634 : Perchas/Normal/
+23:39:16.641 : Perchas/Normal/no_hole_-_general_purpose_
+23:39:16.641 : Perchas/Pez/
+23:39:16.644 : Perchas/Pez/fish_bone_wall_hanger_02-b
+23:39:16.649 : Perchas/Pez/fish_bone_wall_hanger_02-b
+23:39:16.652 : Perchas/Pez/fish_bone_wall_hanger_02-b
+23:39:16.655 : Perchas/Pez/fish_bone_wall_hanger_02-h
+23:39:16.659 : Perchas/Pez/fish_bone_wall_hanger_02-t
+23:39:16.659 : LED/
+23:39:16.664 : LED/MandoLed.gcode
+23:39:16.664 : Despacho/
+23:39:16.667 : Despacho/Gafas.gcode
+23:39:16.667 : Edificios/
+23:39:16.672 : Edificios/LIGHT_HOUSE.gcode
+23:39:16.675 : End file list
+23:39:16.680 : Begin file list
+23:39:16.680 : EEPROM.bin
+23:39:16.680 : Personajes/
+23:39:16.683 : Personajes/Doughboy_Print_2.gcode
+23:39:16.686 : Personajes/dragon.gcode
+23:39:16.689 : Personajes/sitting.gcode
+23:39:16.692 : Personajes/treefrog_45_cut.gcode
+23:39:16.692 : Calibrar/
+23:39:16.695 : Calibrar/100mm_Delta_Calibration_Ro
+23:39:16.698 : Calibrar/dimensions_test_v3.gcode
+23:39:16.701 : Altavoz/
+23:39:16.701 : Altavoz/Mando/
+23:39:16.705 : Altavoz/Mando/Mando Fin.gcode
+23:39:16.707 : Cuadros/
+23:39:16.711 : Cuadros/corner.gcode
+23:39:16.714 : Cuadros/Gancho/
+23:39:16.716 : Cuadros/Gancho/Hook-Plane.gcode
+23:39:16.716 : Delta/
+23:39:16.720 : Delta/Ramps/
+23:39:16.726 : Delta/Ramps/ramps_mount_2020_fan.gcode
+23:39:16.726 : FRIGO/
+23:39:16.730 : FRIGO/0Beer 50/
+23:39:16.736 : FRIGO/0Beer 50/recolza2aV2.gcode
+23:39:16.739 : FRIGO/0Beer 50/recolza2bV2.gcode
+23:39:16.739 : FRIGO/0Fridge_beer_tidy/
+23:39:16.745 : FRIGO/0Fridge_beer_tidy/Beer_tidy_Bottom_v2.gcode
+23:39:16.748 : FRIGO/0Fridge_beer_tidy/Beer_tidy_Top_v2.gcode
+23:39:16.751 : FRIGO/Bottle_Rack/
+23:39:16.753 : FRIGO/Bottle_Rack/link.gcode
+23:39:16.756 : FRIGO/Bottle_Rack/rack.gcode
+23:39:16.760 : FRIGO/Bottle_Rack/rack_-_slim.gcode
+23:39:16.760 : FRIGO/Modular/
+23:39:16.765 : FRIGO/Modular/Modular_can_base_FRONT.gco
+23:39:16.768 : FRIGO/Modular/Modular_can_base_MID.gcode
+23:39:16.771 : FRIGO/Modular/Modular_can_base_REAR.gcod
+23:39:16.773 : FRIGO/Modular/Modular_can_center_FRONT.g
+23:39:16.779 : FRIGO/Modular/Modular_can_center_MID.gco
+23:39:16.782 : FRIGO/Modular/Modular_can_center_REAR.gc
+23:39:16.785 : FRIGO/Roll stop/
+23:39:16.788 : FRIGO/Roll stop/1_5_litre_sodabottle.gcode
+23:39:16.790 : FRIGO/Roll stop/beerbottle.gcode
+23:39:16.793 : FRIGO/Roll stop/Bump_Stop_Connector.gcode
+23:39:16.796 : FRIGO/Roll stop/sodacan.gcode
+23:39:16.799 : FRIGO/Roll stop/winebottle.gcode
+23:39:16.802 : FRIGO/Roll stop/Wine_Bump_Stop.gcode
+23:39:16.803 : Guitarra/
+23:39:16.812 : Guitarra/guitar_hanger_r3_scaled.gc
+23:39:16.812 : Perchas/
+23:39:16.812 : Perchas/Ancla/
+23:39:16.818 : Perchas/Ancla/Anchor_hanger-large.gcode
+23:39:16.821 : Perchas/Ancla/Anchor_hanger-small.gcode
+23:39:16.821 : Perchas/Normal/
+23:39:16.828 : Perchas/Normal/no_hole_-_general_purpose_
+23:39:16.828 : Perchas/Pez/
+23:39:16.830 : Perchas/Pez/fish_bone_wall_hanger_02-b
+23:39:16.836 : Perchas/Pez/fish_bone_wall_hanger_02-b
+23:39:16.839 : Perchas/Pez/fish_bone_wall_hanger_02-b
+23:39:16.841 : Perchas/Pez/fish_bone_wall_hanger_02-h
+23:39:16.845 : Perchas/Pez/fish_bone_wall_hanger_02-t
+23:39:16.845 : LED/
+23:39:16.850 : LED/MandoLed.gcode
+23:39:16.850 : Despacho/
+23:39:16.854 : Despacho/Gafas.gcode
+23:39:16.854 : Edificios/
+23:39:16.858 : Edificios/LIGHT_HOUSE.gcode
+23:39:16.861 : End file list
+23:39:16.861 : DebugLevel:6

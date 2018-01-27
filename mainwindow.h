@@ -53,6 +53,7 @@ private:
     QByteArray Mensajes;
     void InterpretarDatos (QByteArray data);
     void InterpretarLinea (QString Linea);
+    void InterpretarM666 (QString Linea);
     QTabWidget *MiTab;
     TabComunicacion *MiTabComunicacion;
     tabCalibracion *MiTabCalibracion;

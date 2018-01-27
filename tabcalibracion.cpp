@@ -30,6 +30,18 @@ tabCalibracion::tabCalibracion(QWidget *parent) : QWidget(parent)
     g1->addWidget(LEndstopZ,2,2);
     EndstopZ=new QLineEdit("0",this);
     g1->addWidget(EndstopZ,2,3);
+    QLabel *LDiagRodA=new QLabel(tr("Diagonal Rod A (mm) :"));
+    g1->addWidget(LDiagRodA,3,2);
+    DiagRodA=new QLineEdit("0",this);
+    g1->addWidget(DiagRodA,3,3);
+    QLabel *LDiagRodB=new QLabel(tr("Diagonal Rod B (mm) :"));
+    g1->addWidget(LDiagRodB,4,2);
+    DiagRodB=new QLineEdit("0",this);
+    g1->addWidget(DiagRodB,4,3);
+    QLabel *LDiagRodC=new QLabel(tr("Diagonal Rod C (mm) :"));
+    g1->addWidget(LDiagRodC,5,2);
+    DiagRodC=new QLineEdit("0",this);
+    g1->addWidget(DiagRodC,5,3);
 
     QLabel *LDiagonalRod=new QLabel(tr("Diagonal Rod (mm) :"));
     g1->addWidget(LDiagonalRod,0,0);
@@ -50,6 +62,9 @@ void tabCalibracion::Habilitar(bool habil)
     EndstopX->setEnabled(habil);
     EndstopY->setEnabled(habil);
     EndstopZ->setEnabled(habil);
+    DiagRodA->setEnabled(habil);
+    DiagRodB->setEnabled(habil);
+    DiagRodC->setEnabled(habil);
     DiagonalRod->setEnabled(habil);
 }
 
@@ -67,7 +82,23 @@ void tabCalibracion::PonerEndstopY(QString esY)
 {
     EndstopY->setText(esY);
 }
+
 void tabCalibracion::PonerEndstopZ(QString esZ)
 {
     EndstopZ->setText(esZ);
+}
+
+void tabCalibracion::PonerDiagRodA(QString esZ)
+{
+    DiagRodA->setText(esZ);
+}
+
+void tabCalibracion::PonerDiagRodB(QString esZ)
+{
+    DiagRodB->setText(esZ);
+}
+
+void tabCalibracion::PonerDiagRodC(QString esZ)
+{
+    DiagRodC->setText(esZ);
 }

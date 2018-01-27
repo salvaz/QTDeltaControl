@@ -40,6 +40,9 @@ public:
     void PonerEndstopX (QString esX);
     void PonerEndstopY (QString esX);
     void PonerEndstopZ (QString esX);
+    void PonerDiagRodA (QString esX);
+    void PonerDiagRodB (QString esX);
+    void PonerDiagRodC (QString esX);
 
 signals:
 
