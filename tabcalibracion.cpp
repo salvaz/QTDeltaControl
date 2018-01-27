@@ -42,13 +42,25 @@ tabCalibracion::tabCalibracion(QWidget *parent) : QWidget(parent)
     g1->addWidget(LDiagRodC,5,2);
     DiagRodC=new QLineEdit("0",this);
     g1->addWidget(DiagRodC,5,3);
+    QLabel *LAngleA=new QLabel(tr("Angulo torre A (º) :"));
+    g1->addWidget(LAngleA,6,2);
+    AngleA=new QLineEdit("0",this);
+    g1->addWidget(AngleA,6,3);
+    QLabel *LAngleB=new QLabel(tr("Angulo torre B (º) :"));
+    g1->addWidget(LAngleB,7,2);
+    AngleB=new QLineEdit("0",this);
+    g1->addWidget(AngleB,7,3);
+    QLabel *LAngleC=new QLabel(tr("Angulo torre C (º) :"));
+    g1->addWidget(LAngleC,8,2);
+    AngleC=new QLineEdit("0",this);
+    g1->addWidget(AngleC,8,3);
 
     QLabel *LDiagonalRod=new QLabel(tr("Diagonal Rod (mm) :"));
     g1->addWidget(LDiagonalRod,0,0);
     DiagonalRod=new QLineEdit("0",this);
     g1->addWidget(DiagonalRod,0,1);
     QLabel *LDeltaRadio=new QLabel(tr("Delta Radio (mm) :"));
-    g1->addWidget(LDeltaRadio);
+    g1->addWidget(LDeltaRadio,1,0);
     layout->addWidget(w1);
     layout->addWidget(w2);
     layout->addWidget(w4);
@@ -65,6 +77,9 @@ void tabCalibracion::Habilitar(bool habil)
     DiagRodA->setEnabled(habil);
     DiagRodB->setEnabled(habil);
     DiagRodC->setEnabled(habil);
+    AngleA->setEnabled(habil);
+    AngleB->setEnabled(habil);
+    AngleC->setEnabled(habil);
     DiagonalRod->setEnabled(habil);
 }
 
