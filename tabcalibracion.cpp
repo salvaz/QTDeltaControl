@@ -210,3 +210,13 @@ void tabCalibracion::PonerAnguloC(QString esZ)
 {
     AngleC->setText(esZ);
 }
+
+void tabCalibracion::Importar(QSettings &settings)
+{
+    settings.setValue("DiagonalRod",DiagonalRod->text());
+}
+
+void tabCalibracion::Exportar(QSettings &settings)
+{
+    DiagonalRod->setText(settings.value("DiagonalRod","").toString());
+}

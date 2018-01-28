@@ -57,6 +57,14 @@ void MainWindow::CrearAcciones()
     actionDisconnect= new QAction(QIcon(desconectarPix),tr("&Desconectar impresora"), this);
     actionDisconnect->setShortcuts(QKeySequence::Cancel);
     actionDisconnect->setStatusTip(tr("Desconectar impresora."));
+    QPixmap ImpotarPix("://iconos//barra//import");
+    actionImportar= new QAction(QIcon(ImpotarPix),tr("&Importar parametros de la impresora"), this);
+    actionImportar->setShortcuts(QKeySequence::Open);
+    actionImportar->setStatusTip(tr("Importar parametros de la impresora."));
+    QPixmap ExpotarPix("://iconos//barra//export");
+    actionExportar= new QAction(QIcon(ExpotarPix),tr("&Exportar parametros a la impresora"), this);
+    actionExportar->setShortcuts(QKeySequence::Save);
+    actionExportar->setStatusTip(tr("Exportar parametros a la impresora."));
     QPixmap homePix("://iconos//barra//home");
     actionHome= new QAction(QIcon(homePix),tr("&LLevar los ejes al origen"), this);
     actionHome->setShortcuts(QKeySequence::MoveToStartOfDocument);
@@ -71,6 +79,8 @@ void MainWindow::CrearAcciones()
 //    m_console->setEnabled(false);
     actionConnect->setEnabled(true);
     actionDisconnect->setEnabled(false);
+    actionImportar->setEnabled(false);
+    actionExportar->setEnabled(false);
     actionHome->setEnabled(false);
     actionEmergencia->setEnabled(false);
     SMConfiguracion->setEnabled(true);
@@ -80,9 +90,15 @@ void MainWindow::CrearMenus()
 {
      MArchivo = menuBar()->addMenu(tr("&Archivo"));
      MiToolBar=addToolBar(tr("Archivo"));
+     MiToolBar->addAction(actionImportar);
+     MiToolBar->addAction(actionExportar);
+     MiToolBar->addSeparator();
      MiToolBar->addAction(actionConnect);
      MiToolBar->addAction(actionDisconnect);
      MiToolBar->addAction(SMConfiguracion);
+     MArchivo->addAction(actionImportar);
+     MArchivo->addAction(actionExportar);
+     MArchivo->addSeparator();
      MArchivo->addAction(actionConnect);
      MArchivo->addAction(actionDisconnect);
      MArchivo->addSeparator();
@@ -168,6 +184,8 @@ void MainWindow::openSerialPort()
         actionDisconnect->setEnabled(true);
         actionHome->setEnabled(true);
         actionEmergencia->setEnabled(true);
+        actionImportar->setEnabled(true);
+        actionExportar->setEnabled(true);
         SMConfiguracion->setEnabled(false);
 //        showStatusMessage(tr("Connected to %1 : %2, %3, %4, %5, %6")
 //                          .arg(p.name).arg(p.stringBaudRate).arg(p.stringDataBits)
@@ -190,6 +208,8 @@ void MainWindow::closeSerialPort()
     actionDisconnect->setEnabled(false);
     actionHome->setEnabled(false);
     actionEmergencia->setEnabled(false);
+    actionImportar->setEnabled(false);
+    actionExportar->setEnabled(false);
     SMConfiguracion->setEnabled(true);
 //    showStatusMessage(tr("Disconnected"));
 }
@@ -228,6 +248,8 @@ void MainWindow::initActionsConnections()
     connect(actionDisconnect, &QAction::triggered, this, &MainWindow::closeSerialPort);
     connect(actionHome, &QAction::triggered, this, &MainWindow::G28Home);
     connect(actionEmergencia, &QAction::triggered, this, &MainWindow::M112Emergencia);
+    connect(actionImportar, &QAction::triggered, this, &MainWindow::Importar);
+    connect(actionExportar, &QAction::triggered, this, &MainWindow::Exportar);
     connect(SMConfiguracion,&QAction::triggered,this,&MainWindow::ConfigurarPuerto);
     connect(SMSalir, &QAction::triggered, this, &MainWindow::SalirPrograma);
 //    connect(m_ui->actionQuit, &QAction::triggered, this, &MainWindow::close);
@@ -260,8 +282,6 @@ void MainWindow::InterpretarDatos(QByteArray data)
 
 void MainWindow::InterpretarLinea(QString Linea)
 {
-    int posi,fin;
-
     if (Linea.indexOf("M666",0,Qt::CaseInsensitive)!=-1)
     {
         InterpretarM666(Linea);
@@ -287,6 +307,36 @@ void MainWindow::InterpretarM666(QString Linea)
     if ((posi=Linea.indexOf(" S",0,Qt::CaseInsensitive))!=-1)
     {
         MiTabCalibracion->PonerSegmentosSegundo(BuscarValor(Linea," S"));
+    }
+    if ((posi=Linea.indexOf(" O",0,Qt::CaseInsensitive))!=-1)
+    {
+        MiTabCalibracion->PonerPrintRadio(BuscarValor(Linea," O"));
+    }
+    if ((posi=Linea.indexOf(" P",0,Qt::CaseInsensitive))!=-1)
+    {
+        MiTabCalibracion->PonerRadioPrueba(BuscarValor(Linea," P"));
+    }
+    if ((posi=Linea.indexOf(" H",0,Qt::CaseInsensitive))!=-1)
+    {
+        MiTabCalibracion->PonerAlturaZ(BuscarValor(Linea," H"));
+    }
+    if ((posi=Linea.indexOf(" U",0,Qt::CaseInsensitive))!=-1)
+    {
+        MiTabCalibracion->PonerRadioA(BuscarValor(Linea," U"));
+    }
+    if ((posi=Linea.indexOf(" V",0,Qt::CaseInsensitive))!=-1)
+    {
+        MiTabCalibracion->PonerRadioB(BuscarValor(Linea," V"));
+    }
+    if ((posi=Linea.indexOf(" W",0,Qt::CaseInsensitive))!=-1)
+    {
+        MiTabCalibracion->PonerRadioC(BuscarValor(Linea," W"));
+    }
+
+
+    if ((posi=Linea.indexOf(" X",0,Qt::CaseInsensitive))!=-1)
+    {
+        MiTabCalibracion->PonerEndstopX(BuscarValor(Linea," X"));
     }
     if ((posi=Linea.indexOf(" Y",0,Qt::CaseInsensitive))!=-1)
     {
@@ -353,4 +403,35 @@ void MainWindow::M112Emergencia()
     mensaje.push_back(QChar(13));
     data=mensaje.toLatin1();
     writeData(data);
+}
+
+void MainWindow::Importar()
+{
+    QString fileName = QFileDialog::getSaveFileName(this,
+            tr("Guardar datos de la impresora"), "",
+            tr("Datos impresora (*.3dp);;All Files (*)"));
+    if (!fileName.isEmpty())
+    {
+        QSettings settings(fileName, QSettings::NativeFormat);
+        MiTabCalibracion->Importar(settings);
+    }
+/*    QString sText = settings.value("text", "").toString();
+    if (m_pLabel)
+    {
+     m_pLabel->setText(sText);
+    }
+*/
+}
+
+void MainWindow::Exportar()
+{
+    QString fileName = QFileDialog::getOpenFileName(this,
+            tr("Recoger datos de la impresora"), "",
+            tr("Datos impresora (*.3dp);;All Files (*)"));
+    if (!fileName.isEmpty())
+    {
+        QSettings settings(fileName, QSettings::NativeFormat);
+        MiTabCalibracion->Exportar(settings);
+    }
+
 }

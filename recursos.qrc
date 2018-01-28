@@ -9,5 +9,9 @@
         <file alias="desconectar">images/desconectar.png</file>
         <file alias="home">images/home3.png</file>
         <file alias="emergencia">images/emergency-icon.png</file>
+        <file alias="alturaz">images/Altura.png</file>
+        <file alias="sensor">images/sensor.png</file>
+        <file alias="export">images/export.png</file>
+        <file alias="import">images/import1.png</file>
     </qresource>
 </RCC>

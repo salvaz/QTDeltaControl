@@ -5,6 +5,7 @@
 #include <QVBoxLayout>
 #include <QGridLayout>
 #include <QLineEdit>
+#include <QSettings>
 #include "console.h"
 
 class tabCalibracion : public QWidget
@@ -35,6 +36,8 @@ private:
 
 public:
     explicit tabCalibracion(QWidget *parent = nullptr);
+    void Importar (QSettings &settings);
+    void Exportar (QSettings &settings);
     void Habilitar (bool habil);
     void PonerDiagonalRod(QString diaRod);
     void PonerDeltaRadio (QString esX);

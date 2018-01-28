@@ -30,6 +30,8 @@ private slots:
 
     void ConfigurarPuerto();
     void SalirPrograma ();
+    void Importar ();
+    void Exportar ();
     void G28Home ();
     void M112Emergencia ();
 
@@ -71,6 +73,8 @@ private:
     QAction *actionDisconnect;
     QAction *actionHome;
     QAction *actionEmergencia;
+    QAction *actionImportar;
+    QAction *actionExportar;
 
     ConfigDialog *DialogoConfigurar;
     void showStatusMessage(const QString &message);
