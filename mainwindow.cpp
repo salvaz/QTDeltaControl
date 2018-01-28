@@ -413,17 +413,8 @@ void MainWindow::Importar()
     if (!fileName.isEmpty())
     {
         QSettings settings(fileName, QSettings::IniFormat);
-        settings.beginGroup("Calibracion");
         MiTabCalibracion->Importar(settings);
-        settings.endGroup();
-
     }
-/*    QString sText = settings.value("text", "").toString();
-    if (m_pLabel)
-    {
-     m_pLabel->setText(sText);
-    }
-*/
 }
 
 void MainWindow::Exportar()
@@ -434,9 +425,8 @@ void MainWindow::Exportar()
     if (!fileName.isEmpty())
     {
         QSettings settings(fileName, QSettings::IniFormat);
-
-        settings.beginGroup("Calibracion");
         MiTabCalibracion->Exportar(settings);
+
     }
 
 }

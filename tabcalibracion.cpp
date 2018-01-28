@@ -213,10 +213,48 @@ void tabCalibracion::PonerAnguloC(QString esZ)
 
 void tabCalibracion::Importar(QSettings &settings)
 {
-    settings.setValue("DiagonalRod",DiagonalRod->text());
+    settings.beginGroup("Calibracion");
+    settings.setValue("Diagonal_Rod",DiagonalRod->text());
+    settings.setValue("Delta_Radio",DeltaRadio->text());
+    settings.setValue("Segmentos_por_Segundo",SegmentosSegundo->text());
+    settings.setValue("Radio_Printable",PrintableRadio->text());
+    settings.setValue("Radio_de_Prueba",RadioPrueba->text());
+    settings.setValue("Altura_Z",AlturaZ->text());
+    settings.setValue("Endstop_X",EndstopX->text());
+    settings.setValue("Endstop_Y",EndstopY->text());
+    settings.setValue("Endstop_Z",EndstopZ->text());
+    settings.setValue("Corr_DiaRod_A",DiagRodA->text());
+    settings.setValue("Corr_DiaRod_B",DiagRodB->text());
+    settings.setValue("Corr_DiaRod_C",DiagRodC->text());
+    settings.setValue("Corr_Angulo_A",AngleA->text());
+    settings.setValue("Corr_Angulo_B",AngleB->text());
+    settings.setValue("Corr_Angulo_C",AngleC->text());
+    settings.setValue("Corr_Radio_A",RadioA->text());
+    settings.setValue("Corr_Radio_B",RadioB->text());
+    settings.setValue("Corr_Radio_C",RadioC->text());
+    settings.endGroup();
 }
 
 void tabCalibracion::Exportar(QSettings &settings)
 {
-    DiagonalRod->setText(settings.value("DiagonalRod","").toString());
+    settings.beginGroup("Calibracion");
+    DiagonalRod->setText(settings.value("Diagonal_Rod","").toString());
+    DeltaRadio->setText(settings.value("Delta_Radio","").toString());
+    SegmentosSegundo->setText(settings.value("Segmentos_por_Segundo","").toString());
+    PrintableRadio->setText(settings.value("Radio_Printable","").toString());
+    RadioPrueba->setText(settings.value("Radio_de_Prueba","").toString());
+    AlturaZ->setText(settings.value("Altura_Z","").toString());
+    EndstopX->setText(settings.value("Endstop_X","").toString());
+    EndstopY->setText(settings.value("Endstop_X","").toString());
+    EndstopZ->setText(settings.value("Endstop_X","").toString());
+    DiagRodA->setText(settings.value("Corr_DiaRod_A","").toString());
+    DiagRodB->setText(settings.value("Corr_DiaRod_B","").toString());
+    DiagRodC->setText(settings.value("Corr_DiaRod_C","").toString());
+    AngleA->setText(settings.value("Corr_Angulo_A","").toString());
+    AngleB->setText(settings.value("Corr_Angulo_B","").toString());
+    AngleC->setText(settings.value("Corr_Angulo_C","").toString());
+    RadioA->setText(settings.value("Corr_Radio_A","").toString());
+    RadioB->setText(settings.value("Corr_Radio_B","").toString());
+    RadioC->setText(settings.value("Corr_Radio_C","").toString());
+    settings.endGroup();
 }
