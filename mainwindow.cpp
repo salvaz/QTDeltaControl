@@ -412,8 +412,11 @@ void MainWindow::Importar()
             tr("Datos impresora (*.3dp);;All Files (*)"));
     if (!fileName.isEmpty())
     {
-        QSettings settings(fileName, QSettings::NativeFormat);
+        QSettings settings(fileName, QSettings::IniFormat);
+        settings.beginGroup("Calibracion");
         MiTabCalibracion->Importar(settings);
+        settings.endGroup();
+
     }
 /*    QString sText = settings.value("text", "").toString();
     if (m_pLabel)
@@ -430,7 +433,9 @@ void MainWindow::Exportar()
             tr("Datos impresora (*.3dp);;All Files (*)"));
     if (!fileName.isEmpty())
     {
-        QSettings settings(fileName, QSettings::NativeFormat);
+        QSettings settings(fileName, QSettings::IniFormat);
+
+        settings.beginGroup("Calibracion");
         MiTabCalibracion->Exportar(settings);
     }
 
