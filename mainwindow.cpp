@@ -33,10 +33,10 @@ void MainWindow::CrearVentana()
     CrearAcciones();
     CrearMenus();
 
-    setWindowTitle(tr("3D Printer Control"));
-    setMinimumSize(160, 160);
-    resize(480, 320);
-
+    setWindowTitle(tr("3D Delta Printer Control"));
+    setMinimumSize(400, 500);
+//    resize(480, 320);
+    showMaximized();
 }
 
 void MainWindow::CrearAcciones()
@@ -177,6 +177,7 @@ void MainWindow::openSerialPort()
     if (m_serial->open(QIODevice::ReadWrite)) {
         MiTabComunicacion->Habilitar(true);
         MiTabComunicacion->HabilitarEcho(p.localEchoEnabled);
+        MiTabCalibracion->SetSerial(m_serial);
         MiTabCalibracion->Habilitar(true);
 //        m_console->setEnabled(true);
 //        m_console->setLocalEchoEnabled(p.localEchoEnabled);
@@ -282,15 +283,90 @@ void MainWindow::InterpretarDatos(QByteArray data)
 
 void MainWindow::InterpretarLinea(QString Linea)
 {
+    int posi;
+
     if (Linea.indexOf("M666",0,Qt::CaseInsensitive)!=-1)
     {
         InterpretarM666(Linea);
     }
+    else if ((posi=Linea.indexOf("X (Endstop Adj)",0,Qt::CaseInsensitive))!=-1)
+    {
+        MiTabCalibracion->PonerEndstopX(BuscarValor(Linea,": "));
+    }
+    else if ((posi=Linea.indexOf("Y (Endstop Adj)",0,Qt::CaseInsensitive))!=-1)
+    {
+        MiTabCalibracion->PonerEndstopY(BuscarValor(Linea,": "));
+    }
+    else if ((posi=Linea.indexOf("Z (Endstop Adj)",0,Qt::CaseInsensitive))!=-1)
+    {
+        MiTabCalibracion->PonerEndstopZ(BuscarValor(Linea,": "));
+    }
+    else if ((posi=Linea.indexOf("Tower A Diagonal",0,Qt::CaseInsensitive))!=-1)
+    {
+        MiTabCalibracion->PonerDiagRodA(BuscarValor(Linea,": "));
+    }
+    else if ((posi=Linea.indexOf("Tower B Diagonal",0,Qt::CaseInsensitive))!=-1)
+    {
+        MiTabCalibracion->PonerDiagRodB(BuscarValor(Linea,": "));
+    }
+    else if ((posi=Linea.indexOf("Tower C Diagonal",0,Qt::CaseInsensitive))!=-1)
+    {
+        MiTabCalibracion->PonerDiagRodC(BuscarValor(Linea,": "));
+    }
+    else if ((posi=Linea.indexOf("Tower A Angle",0,Qt::CaseInsensitive))!=-1)
+    {
+        MiTabCalibracion->PonerAnguloA(BuscarValor(Linea,": "));
+    }
+    else if ((posi=Linea.indexOf("Tower B Angle",0,Qt::CaseInsensitive))!=-1)
+    {
+        MiTabCalibracion->PonerAnguloB(BuscarValor(Linea,": "));
+    }
+    else if ((posi=Linea.indexOf("Tower C Angle",0,Qt::CaseInsensitive))!=-1)
+    {
+        MiTabCalibracion->PonerAnguloC(BuscarValor(Linea,": "));
+    }
+    else if ((posi=Linea.indexOf("Tower A Radius",0,Qt::CaseInsensitive))!=-1)
+    {
+        MiTabCalibracion->PonerRadioA(BuscarValor(Linea,": "));
+    }
+    else if ((posi=Linea.indexOf("Tower B Radius",0,Qt::CaseInsensitive))!=-1)
+    {
+        MiTabCalibracion->PonerRadioB(BuscarValor(Linea,": "));
+    }
+    else if ((posi=Linea.indexOf("Tower C Radius",0,Qt::CaseInsensitive))!=-1)
+    {
+        MiTabCalibracion->PonerRadioC(BuscarValor(Linea,": "));
+    }
+    else if ((posi=Linea.indexOf("Delta Radius",0,Qt::CaseInsensitive))!=-1)
+    {
+        MiTabCalibracion->PonerDeltaRadio(BuscarValor(Linea,": "));
+    }
+    else if ((posi=Linea.indexOf("Diagonal Rod Length",0,Qt::CaseInsensitive))!=-1)
+    {
+        MiTabCalibracion->PonerDiagonalRod(BuscarValor(Linea,": "));
+    }
+    else if ((posi=Linea.indexOf("Delta Segments per second",0,Qt::CaseInsensitive))!=-1)
+    {
+        MiTabCalibracion->PonerSegmentosSegundo(BuscarValor(Linea,": "));
+    }
+    else if ((posi=Linea.indexOf("Delta Print Radius",0,Qt::CaseInsensitive))!=-1)
+    {
+        MiTabCalibracion->PonerPrintRadio(BuscarValor(Linea,": "));
+    }
+    else if ((posi=Linea.indexOf("Delta Probe Radius",0,Qt::CaseInsensitive))!=-1)
+    {
+        MiTabCalibracion->PonerRadioPrueba(BuscarValor(Linea,": "));
+    }
+    else if ((posi=Linea.indexOf("(Z-Height)",0,Qt::CaseInsensitive))!=-1)
+    {
+        MiTabCalibracion->PonerAlturaZ(BuscarValor(Linea,": "));
+    }
+
 }
 
 void MainWindow::InterpretarM666(QString Linea)
 {
-    int posi,fin;
+    int posi;
 
     if ((posi=Linea.indexOf(" D",0,Qt::CaseInsensitive))!=-1)
     {

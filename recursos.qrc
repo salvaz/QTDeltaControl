@@ -13,5 +13,7 @@
         <file alias="sensor">images/sensor.png</file>
         <file alias="export">images/export.png</file>
         <file alias="import">images/import1.png</file>
+        <file alias="geteprom">images/getEPROM2.png</file>
+        <file alias="seteprom">images/setEPROM2.png</file>
     </qresource>
 </RCC>

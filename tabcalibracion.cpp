@@ -1,11 +1,12 @@
 #include "tabcalibracion.h"
 #include <QLabel>
 
+
 tabCalibracion::tabCalibracion(QWidget *parent) : QWidget(parent)
 {
     QVBoxLayout *layout = new QVBoxLayout;
     //test=new QPushButton("test",this);
-    QGridLayout *g1=new QGridLayout(this);
+    QGridLayout *g666=new QGridLayout(this);
     QGridLayout *g2=new QGridLayout(this);
     QGridLayout *g3=new QGridLayout(this);
     QGridLayout *g4=new QGridLayout(this);
@@ -13,10 +14,14 @@ tabCalibracion::tabCalibracion(QWidget *parent) : QWidget(parent)
     QWidget *w2=new QWidget(this);
     QWidget *w3=new QWidget(this);
     QWidget *w4=new QWidget(this);
-    w1->setLayout(g1);
+    w1->setLayout(g666);
     w2->setLayout(g2);
     w3->setLayout(g3);
     w4->setLayout(g4);
+
+    g666->addWidget(Box666=new QGroupBox(tr("Configuración Delta - M666"),this),0,0);
+    QGridLayout *g1=new QGridLayout(Box666);
+
 
     QLabel *LEndstopX=new QLabel(tr("Endstop X (mm) :"));
     g1->addWidget(LEndstopX,0,2);
@@ -91,12 +96,21 @@ tabCalibracion::tabCalibracion(QWidget *parent) : QWidget(parent)
     g1->addWidget(LRadioC,8,0);
     RadioC=new QLineEdit("0",this);
     g1->addWidget(RadioC,8,1);
+    QPixmap SetEpromPix("://iconos//barra//seteprom");
+    BSetCalibracion=new QPushButton(QIcon(SetEpromPix),"Set EPROM",this);
+    g1->addWidget(BSetCalibracion,9,0);
+    QPixmap GetEpromPix("://iconos//barra//geteprom");
+    BGetCalibracion=new QPushButton(QIcon(GetEpromPix),"Get EPROM",this);
+    g1->addWidget(BGetCalibracion,9,2);
 
     layout->addWidget(w1);
     layout->addWidget(w2);
     layout->addWidget(w4);
     layout->addWidget(w3);
     setLayout(layout);
+
+    connect(BGetCalibracion, &QPushButton::released, this, &tabCalibracion::GetM666);
+    connect(BSetCalibracion, &QPushButton::released, this, &tabCalibracion::SetM666);
 
 }
 
@@ -120,6 +134,8 @@ void tabCalibracion::Habilitar(bool habil)
     RadioA->setEnabled(habil);
     RadioB->setEnabled(habil);
     RadioC->setEnabled(habil);
+    BSetCalibracion->setEnabled(habil);
+    BGetCalibracion->setEnabled(habil);
 }
 
 void tabCalibracion::PonerDiagonalRod(QString diaRod)
@@ -211,6 +227,16 @@ void tabCalibracion::PonerAnguloC(QString esZ)
     AngleC->setText(esZ);
 }
 
+void tabCalibracion::SetSerial(QSerialPort *miSerial)
+{
+    m_serial=miSerial;
+}
+
+void tabCalibracion::writeData(const QByteArray &data)
+{
+    m_serial->write(data);
+}
+
 void tabCalibracion::Importar(QSettings &settings)
 {
     settings.beginGroup("Calibracion");
@@ -257,4 +283,26 @@ void tabCalibracion::Exportar(QSettings &settings)
     RadioB->setText(settings.value("Corr_Radio_B","").toString());
     RadioC->setText(settings.value("Corr_Radio_C","").toString());
     settings.endGroup();
+}
+
+void tabCalibracion::GetM666()
+{
+    QString mensaje;
+    QByteArray data;
+
+    mensaje="M666 L";
+    mensaje.push_back(QChar(13));
+    data=mensaje.toLatin1();
+    writeData(data);
+}
+
+void tabCalibracion::SetM666()
+{
+    QString mensaje;
+    QByteArray data;
+
+    mensaje="M666 L";
+    mensaje.push_back(QChar(13));
+    data=mensaje.toLatin1();
+//    writeData(data);
 }

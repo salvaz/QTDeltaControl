@@ -4,14 +4,18 @@
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QGridLayout>
+#include <QGroupBox>
 #include <QLineEdit>
 #include <QSettings>
+#include <QPushButton>
+#include <QSerialPort>
 #include "console.h"
 
 class tabCalibracion : public QWidget
 {
     Q_OBJECT
 private:
+    QGroupBox *Box666;
     QLineEdit *EndstopX;
     QLineEdit *EndstopY;
     QLineEdit *EndstopZ;
@@ -31,11 +35,14 @@ private:
     QLineEdit *PrintableRadio;
     QLineEdit *RadioPrueba;
     QLineEdit *AlturaZ;
+    QPushButton *BSetCalibracion;
+    QPushButton *BGetCalibracion;
 
-
+    QSerialPort *m_serial = nullptr;
 
 public:
     explicit tabCalibracion(QWidget *parent = nullptr);
+    void SetSerial (QSerialPort *miSerial);
     void Importar (QSettings &settings);
     void Exportar (QSettings &settings);
     void Habilitar (bool habil);
@@ -61,7 +68,11 @@ public:
 
 signals:
 
-public slots:
+private slots:
+    void writeData(const QByteArray &data);
+    void SetM666 (void);
+    void GetM666 (void);
+
 };
 
 #endif // TABCALIBRACION_H
